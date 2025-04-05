@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVs Familiares - Locadora Turbo</title>
+    <link rel="stylesheet" href="suvFamiliar.css">
+    
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="locacao.html">Locação</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>SUVs Familiares</h1>
+        <p>Escolha o modelo ideal para sua viagem em família!</p>
+    </header>
+
+    <section class="options">
+        <h2>Opções de SUVs Familiares</h2>
+        <div class="car-list">
+            <!-- Carros Originais -->
+            <div class="car">
+                <h3>Jeep Compass</h3>
+                <img src="jeep_compass.jpg" alt="Jeep Compass">
+                <p>R$ 129,90/dia</p>
+                <p>2.0, confortável e espaçoso</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Toyota Corolla Cross</h3>
+                <img src="toyota_corolla_cross.jpg" alt="Toyota Corolla Cross">
+                <p>R$ 139,90/dia</p>
+                <p>Econômico e moderno</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Volkswagen Tiguan</h3>
+                <img src="vw_tiguan.jpg" alt="Volkswagen Tiguan">
+                <p>R$ 149,90/dia</p>
+                <p>Robusto e tecnológico</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Jeep Commander</h3>
+                <img src="jeep_commander.jpg" alt="Jeep Commander">
+                <p>R$ 179,90/dia</p>
+                <p>7 lugares, ideal para famílias</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <!-- Novos Carros -->
+            <div class="car">
+                <h3>Chevrolet Equinox</h3>
+                <img src="chevrolet_equinox.jpg" alt="Chevrolet Equinox">
+                <p>R$ 135,90/dia</p>
+                <p>Design elegante e potente</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Honda CR-V</h3>
+                <img src="honda_cr_v.jpg" alt="Honda CR-V">
+                <p>R$ 145,90/dia</p>
+                <p>Conforto e confiabilidade</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Hyundai Tucson</h3>
+                <img src="hyundai_tucson.jpg" alt="Hyundai Tucson">
+                <p>R$ 139,90/dia</p>
+                <p>Estilo e versatilidade</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Mitsubishi Outlander</h3>
+                <img src="mitsubishi_outlander.jpg" alt="Mitsubishi Outlander">
+                <p>R$ 159,90/dia</p>
+                <p>Espaçoso e com tração 4x4</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Ford Territory</h3>
+                <img src="ford_territory.jpg" alt="Ford Territory">
+                <p>R$ 149,90/dia</p>
+                <p>Moderno e com ótimo custo-benefício</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+        </div>
+    </section>
+    Explicação
+
+    <footer>
+        <p>© 2025 Locadora Turbo - Fale conosco: (11) 9999-8888 | contato@locadoraturbo.com.br</p>
+    </footer>
+
+    <script>
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const carName = this.parentElement.querySelector('h3').textContent;
+        let carValue;
+        switch(carName) {
+            case 'Jeep Compass':carValue = 'jeep_compass'; 
+                break;
+            case 'Toyota Corolla Cross': 
+                carValue = 'toyota_corolla_cross'; 
+                break;
+            case 'Volkswagen Tiguan': 
+                carValue = 'volkswagen_tiguan'; 
+                break;
+            case 'Jeep Commander': 
+                carValue = 'jeep_commander'; 
+                break;
+            case 'Chevrolet Equinox': 
+                carValue = 'chevrolet_equinox'; 
+                break;
+            case 'Honda CR-V': 
+                carValue = 'honda_cr_v'; 
+                break;
+            case 'Hyundai Tucson': 
+                carValue = 'hyundai_tucson'; 
+                break;
+            case 'Mitsubishi Outlander': 
+                carValue = 'mitsubishi_outlander'; 
+                break;
+            case 'Ford Territory': 
+                carValue = 'ford_territory'; 
+                break;
+            default: 
+                carValue = ''; 
+                break;
+        }
+        console.log('Carro selecionado:', carValue); // Depuração
+        window.location.href = `locacao.html?carro=${carValue}`;
+    });
+});
+    </script>
+</body>
+</html>

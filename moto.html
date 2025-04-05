@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motos - Locadora Turbo</title>
+    <link rel="stylesheet" href="moto.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Motos</h1>
+        <p>Escolha a moto perfeita para sua mobilidade!</p>
+    </header>
+
+    <section class="options">
+        <h2>Opções de Motos </h2>
+        <div class="car-list">
+            <div class="car">
+                <h3>Honda CG 150 CARGO</h3>
+                <img src="https://www.motonline.com.br/storage/guides/honda/cg-150-cargo.jpg" alt="Honda CG 150 CARGO">
+                <p>R$ 49,90/dia</p>
+                <p>Resistente e econômica</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Yamaha Factor 150</h3>
+                <img src="https://image1.mobiauto.com.br/images/api/images/v1.0/457437031/transform/fl_progressive,f_webp,q_70,w_600" alt="Yamaha Factor 150">
+                <p>R$ 54,90/dia</p>
+                <p>Leve e ágil no trânsito</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Honda CG 160 FAN</h3>
+                <img src="https://cdn.prod.website-files.com/64553b6fc1200be54545acaa/6581cd738e8067f8b2e19429_CG%20Cargo%20-%20Branco%20-%204FD.webp" alt="Honda CG 160 FAN">
+                <p>R$ 44,90/dia</p>
+                <p>Simples e acessível</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Locadora Turbo - Fale conosco: (11) 9999-8888 | contato@locadoraturbo.com.br</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const carName = this.parentElement.querySelector('h3').textContent;
+                let carValue;
+                switch(carName) {
+                    case 'Honda CG 150 CARGO': carValue = 'honda-cg-150-cargo'; break;
+                    case 'Yamaha Factor 150': carValue = 'yamaha-factor-150'; break;
+                    case 'Honda CG 160 FAN': carValue = 'honda-cg-160-fan'; break;
+
+                    default: carValue = '';
+                }
+                console.log('Moto selecionada:', carValue); 
+                window.location.href = `locacao.html?carro=${carValue}`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carros Compactos - Locadora Turbo</title>
+    <style>
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #1a2b49;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #ff6b35;
+}
+
+header {
+    background-color: #2e4372;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-top: 60px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 20px;
+}
+
+.options {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.options h2 {
+    font-size: 28px;
+    color: #1a2b49;
+    margin-bottom: 20px;
+}
+
+.car-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.car {
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    width: 280px;
+    height: 400px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.car:hover {
+    transform: scale(1.05);
+}
+
+.car h3 {
+    font-size: 20px;
+    color: #ff6b35;
+    margin-bottom: 10px;
+}
+
+.car p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a2b49;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #1717e6;
+}
+
+footer {
+    background-color: #1a2b49;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+    
+    header p {
+        font-size: 16px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .car {
+        width: 100%;
+        height: auto;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Carros Compactos</h1>
+        <p>Escolha o modelo perfeito para sua locação!</p>
+    </header>
+
+    <section class="options">
+        <h2>Opções de Carros Compactos</h2>
+        <div class="car-list">
+            <div class="car">
+                <h3>Fiat Argo</h3>
+                <img src="https://www.litoralcar.com.br/foto-resize/g/1223039/1695/fiat-argo-argo-drive-flex-1.3-2025-20938996.webp">
+                <p>R$ 79,90/dia</p>
+                <p>1.0, econômico e prático</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Volkswagen Gol</h3>
+                <img src="https://img0.icarros.com/dbimg/galeriaimgmodelo/7/36263_1.jpg">
+                <p>R$ 84,90/dia</p>
+                <p>1.6, robusto e confiável</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Chevrolet Onix</h3>
+                <img src="data:image/jpeg;base64,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"> <!-- Substitua por um link válido -->
+                <p>R$ 89,90/dia</p>
+                <p>1.0 Turbo, moderno e ágil</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Hyundai HB20</h3>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAuQb-5dINLQNonVvYbQBth6AXojdw4ZznbO1pkJNQGi779TD-DbBQVpUs17_jl47KwO8&usqp=CAU" alt="Hyundai HB20">
+                <p>R$ 82,90/dia</p>
+                <p>1.0, compacto e eficiente</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Renault Kwid</h3>
+                <img src="https://i0.wp.com/badevalor.com.br/wp-content/uploads/2018/04/Renault-Kwid.png?fit=1176%2C580&ssl=1" alt="Renault Kwid">
+                <p>R$ 74,90/dia</p>
+                <p>1.0, leve e econômico</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+            <div class="car">
+                <h3>Peugeot 208</h3>
+                <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/11/Peugeot-208-Like-2.jpg?quality=70&strip=info&w=720&crop=1" alt="Peugeot 208">
+                <p>R$ 75,90/dia</p>
+                <p>1.0, leve e estiloso</p>
+                <a href="locacao.html" class="btn">Alugar Agora</a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Locadora Turbo - Fale conosco: (11) 9999-8888 | contato@locadoraturbo.com.br</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const carName = this.parentElement.querySelector('h3').textContent;
+                let carValue;
+                switch(carName) {
+                    case 'Fiat Argo': carValue = 'fiat_argo'; break;
+                    case 'Volkswagen Gol': carValue = 'vw_gol'; break;
+                    case 'Chevrolet Onix': carValue = 'chevrolet_onix'; break;
+                    case 'Hyundai HB20': carValue = 'hyundai_hb20'; break
+                    case 'Renault Kwid': carValue = 'renault_kwid'; break
+                    case 'Peugeot 208': carValue = 'peugeot_208'; break
+
+                    default: carValue = '';
+                }
+                console.log('Carro selecionado:', carValue); 
+                window.location.href = `locacao.html?carro=${carValue}`;
+            });
+        });
+    </script>
+</body>
+</html>

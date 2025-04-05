@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locação Empresarial - Locadora Turbo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #1a2b49;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: right;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b35;
+        }
+
+        header {
+            background-color: #2e4372;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        .options {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        .options h2 {
+            font-size: 28px;
+            color: #1a2b49;
+            margin-bottom: 20px;
+        }
+
+        .package-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .package {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            width: 280px;
+            min-height: 500px; /* Altura mínima em vez de fixa */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            flex-shrink: 0;
+}
+
+        .package:hover {
+            transform: scale(1.05);
+        }
+
+        .package h3 {
+            font-size: 20px;
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .package img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .package p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .image-container {
+    position: relative;
+    width: 100%;
+    height: 150px; /* Altura fixa para a imagem */
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.carousel-btn {
+    background-color: #1a2b49;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: #ff6b35;
+}
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a2b49;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1717e6;
+        }
+
+        footer {
+            background-color: #1a2b49;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+    .package {
+        width: 90%; /* Ajusta a largura do pacote para telas menores */
+        height: auto; /* Remove altura fixa para melhor adaptação */
+        margin: 10px auto;
+    }
+    .image-container {
+        height: 200px; /* Altura ajustada para telas menores */
+    }
+    .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .carousel-controls {
+        justify-content: center;
+        gap: 20px; /* Espaço entre os botões */
+    }
+    .carousel-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="locacao.html">Locação</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Locação Empresarial</h1>
+        <p>Soluções personalizadas para sua empresa com os melhores planos!</p>
+    </header>
+
+    <section class="options">
+        <h2>Nossos Pacotes Empresariais</h2>
+        <div class="package-list">
+            <div class="package">
+                <h3>Pacote Básico</h3>
+                <div class="image-container">
+                    <img src="https://garagem360.com.br/wp-content/uploads/2024/05/1_fiat-strada-freedom-cabine-plus-2025-2.jpg" alt="Fiat Strada - Pacote Básico" class="carousel-image active">
+                    <img src="https://conteudo.imguol.com.br/c/colunas/7e/2023/07/02/volkswagen-saveiro-trendline-1688308783334_v2_1388x741.jpg" alt="VW Saveiro - Pacote Básico" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev">◄ Anterior</button>
+                    <button class="carousel-btn next">Próximo ►</button>
+                </div>
+                <p>R$ 1.500,00/mês</p>
+                <p>2 Carros Populares</p>
+                <p>Manutenção inclusa</p>
+                <p>Até 3.000 km/mês</p>
+                <p>Ideal para pequenas equipes</p>
+                <a href="locacao.html" class="btn">Contratar Agora</a>
+            </div>
+            <div class="package">
+                <h3>Pacote Intermediário</h3>
+                <div class="image-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4WDp7oCQyLy1t4nAc-tFP0piBsPAbLBQdJA&s" alt="Equinox - Pacote Intermediário" class="carousel-image active">
+                    <img src="https://img0.icarros.com/dbimg/imgnoticia/7/29799_1" alt="Jeep Commander - Pacote Intermediário" class="carousel-image">
+                    <img src="https://production.autoforce.com/uploads/version/profile_image/6161/comprar-outlander-2-0l-hpe_0dd1559883.png" alt="Mitsubishi Outlander - Pacote Intermediário" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev">◄ Anterior</button>
+                    <button class="carousel-btn next">Próximo ►</button>
+                </div>
+                <p>R$ 3.200,00/mês</p>
+                <p>3 SUVs Familiares</p>
+                <p>Manutenção e seguro inclusos</p>
+                <p>Até 5.000 km/mês</p>
+                <p>Perfeito para equipes médias</p>
+                <a href="locacao.html" class="btn">Contratar Agora</a>
+            </div>
+            <div class="package">
+                <h3>Pacote Premium</h3>
+                <div class="image-container">
+                    <img src="https://production.autoforce.com/uploads/version/profile_image/7046/model_middle_webp_comprar-200-amg-line_0b577bc42a.png.webp" alt="Mercedes-Benz Classe C - Pacote Premium" class="carousel-image active">
+                    <img src="https://production.autoforce.com/uploads/version/profile_image/9816/model_main_webp_comprar-m-sport_0602b534f5.png.webp" alt="BMW X5 - Pacote Premium" class="carousel-image">
+                    <img src="https://production.autoforce.com/uploads/version/profile_image/10036/comprar-performance-black-40-tfsi-s-tronic_7738837bc4.png" alt="Audi - Pacote Premium" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev">◄ Anterior</button>
+                    <button class="carousel-btn next">Próximo ►</button>
+                </div>
+                <p>R$ 6.000,00/mês</p>
+                <p>2 Carros de Luxo + 1 SUV</p>
+                <p>Manutenção, seguro e substituição</p>
+                <p>Km ilimitado</p>
+                <p>Para empresas de alto padrão</p>
+                <a href="locacao.html" class="btn">Contratar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Locadora Turbo - Fale conosco: (11) 9999-8888 | contato@locadoraturbo.com.br</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.package').forEach(package => {
+            const images = package.querySelectorAll('.carousel-image');
+            const prevBtn = package.querySelector('.carousel-btn.prev');
+            const nextBtn = package.querySelector('.carousel-btn.next');
+            let currentIndex = 0;
+    
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+            }
+    
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            });
+    
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            });
+    
+            // Mostrar a primeira imagem por padrão
+            showImage(currentIndex);
+        });
+    
+        // Script existente para os botões "Contratar Agora"
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const packageName = this.parentElement.querySelector('h3').textContent;
+                let packageValue;
+                switch(packageName) {
+                    case 'Pacote Básico': packageValue = 'pacote-basico'; break;
+                    case 'Pacote Intermediário': packageValue = 'pacote-intermediario'; break;
+                    case 'Pacote Premium': packageValue = 'pacote-premium'; break;
+                    default: packageValue = '';
+                }
+                console.log('Pacote selecionado:', packageValue); 
+                window.location.href = `locacao.html?pacote=${packageValue}`;
+            });
+        });
+    </script>
+</body>
+</html>

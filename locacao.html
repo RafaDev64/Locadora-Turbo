@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locação - Locadora Turbo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+        nav {
+            background-color: #1a2b49;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: right;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li a:hover {
+            color: #ff6b35;
+        }
+       
+        /* Estilo do formulário */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-container h1 {
+            font-size: 28px;
+            color: #1a2b49;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1a2b49;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group select {
+            height: auto;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a2b49;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #ff6b35;
+        }
+        #total-cost {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #1a2b49;
+        }
+        footer {
+            background-color: #1a2b49;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+            .package {
+                width: 90%;
+                margin: 10px auto;
+            }
+            .form-container {
+                margin: 20px;
+                padding: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="servicos.html">Serviços</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+    <br>
+    <!-- Formulário -->
+    <div class="form-container">
+        <h1>Formulário de Locação</h1>
+        <form id="locacao-form" action="#" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="form-group">
+                <label for="carro">Escolha o Veículo ou Pacote</label>
+                <select id="carro" name="carro" required>
+                    <option value="">Selecione um veículo ou pacote</option>
+                    <!-- Pacotes -->
+                    <option value="pacote-basico" data-price="1500.00">Pacote Básico - R$ 1.500,00/mês</option>
+                    <option value="pacote-intermediario" data-price="3200.00">Pacote Intermediário - R$ 3.200,00/mês</option>
+                    <option value="pacote-premium" data-price="6000.00">Pacote Premium - R$ 6.000,00/mês</option>
+                    <!-- Carros Compactos -->
+                    <option value="fiat_argo" data-price="79.90">Fiat Argo - R$ 79,90/dia</option>
+                    <option value="vw_gol" data-price="84.90">Volkswagen Gol - R$ 84,90/dia</option>
+                    <option value="chevrolet_onix" data-price="89.90">Chevrolet Onix - R$ 89,90/dia</option>
+                    <option value="hyundai_hb20" data-price="82.90">Hyundai HB20 - R$ 82,90/dia</option>
+                    <option value="renault_kwid" data-price="74.90">Renault Kwid - R$ 74,90/dia</option>
+                    <option value="peugeot_208" data-price="75.90">Peugeot 208 - R$ 75,90/dia</option>
+                    <!-- SUVs Familiares -->
+                    <option value="jeep_compass" data-price="129.90">Jeep Compass - R$ 129,90/dia</option>
+                    <option value="toyota_corolla_cross" data-price="139.90">Toyota Corolla Cross - R$ 139,90/dia</option>
+                    <option value="volkswagen_tiguan" data-price="149.90">Volkswagen Tiguan - R$ 149,90/dia</option>
+                    <option value="jeep_commander" data-price="179.90">Jeep Commander - R$ 179,90/dia</option>
+                    <option value="chevrolet_equinox" data-price="135.90">Chevrolet Equinox - R$ 135,90/dia</option>
+                    <option value="honda_cr_v" data-price="145.90">Honda CR-V - R$ 145,90/dia</option>
+                    <option value="hyundai_tucson" data-price="139.90">Hyundai Tucson - R$ 139,90/dia</option>
+                    <option value="mitsubishi_outlander" data-price="159.90">Mitsubishi Outlander - R$ 159,90/dia</option>
+                    <option value="ford_territory" data-price="149.90">Ford Territory - R$ 149,90/dia</option>
+                    <!-- Carros de Luxo -->
+                    <option value="bmw-serie-3" data-price="520.90">BMW Série 3 - R$ 520,90/dia</option>
+                    <option value="mercedes-classe-c" data-price="550.00">Mercedes-Benz Classe C - R$ 550,00/dia</option>
+                    <option value="audi-a4" data-price="530.90">Audi A4 - R$ 530,90/dia</option>
+                    <option value="porsche-carrera-911" data-price="1200.00">Porsche 911 Carrera - R$ 1.200,00/dia</option>
+                    <option value="lexus-es-350" data-price="600.00">Lexus ES 350 - R$ 600,00/dia</option>
+                    <option value="jaguar-xf" data-price="580.90">Jaguar XF - R$ 580,90/dia</option>
+                    <!-- Motos -->
+                    <option value="honda-cg-150-cargo" data-price="49.90">Honda CG 150 CARGO - R$ 49,90/dia</option>
+                    <option value="yamaha-factor-150" data-price="54.90">Yamaha Factor 150 - R$ 54,90/dia</option>
+                    <option value="honda-cg-160-fan" data-price="44.90">Honda CG 160 FAN - R$ 44,90/dia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="data-inicio">Data de Início</label>
+                <input type="date" id="data-inicio" name="data-inicio" required>
+            </div>
+            <div class="form-group">
+                <label for="data-fim">Data de Fim</label>
+                <input type="date" id="data-fim" name="data-fim" required>
+            </div>
+            <button type="submit" class="btn">Enviar Solicitação</button>
+        </form>
+        <div id="total-cost">Valor total: R$ 0,00</div>
+    </div>
+
+    <footer>
+        <p>© 2025 Locadora Turbo - Fale conosco: (11) 9999-8888 | contato@locadoraturbo.com.br</p>
+    </footer>
+
+    <script>
+        // Pré-selecionar pacote ou veículo baseado na URL
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pacote = urlParams.get('pacote') || urlParams.get('carro');
+            const telefone = urlParams.get('telefone');
+
+            if (pacote) {
+                const select = document.getElementById('carro');
+                select.value = pacote;
+                calculateTotal();
+            }
+            if (telefone) {
+                document.getElementById('telefone').value = decodeURIComponent(telefone);
+            }
+        });
+
+        // Selecionar pacote ao clicar
+        document.querySelectorAll('.package').forEach(package => {
+            package.addEventListener('click', function() {
+                const packageValue = this.getAttribute('data-package');
+                const select = document.getElementById('carro');
+                select.value = packageValue;
+                calculateTotal();
+            });
+        });
+
+        // Calcular o custo total
+        function calculateTotal() {
+            const select = document.getElementById('carro');
+            const dataInicio = document.getElementById('data-inicio').value;
+            const dataFim = document.getElementById('data-fim').value;
+            const totalCostElement = document.getElementById('total-cost');
+
+            if (!select.value || !dataInicio || !dataFim) {
+                totalCostElement.textContent = 'Valor total: R$ 0,00';
+                return 0;
+            }
+
+            const price = parseFloat(select.selectedOptions[0].getAttribute('data-price'));
+            const startDate = new Date(dataInicio);
+            const endDate = new Date(dataFim);
+            const timeDifference = endDate - startDate;
+            const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            if (daysDifference <= 0) {
+                totalCostElement.textContent = 'Valor total: R$ 0,00 (data inválida)';
+                return 0;
+            }
+
+            let totalCost;
+            if (select.value.startsWith('pacote')) {
+                // Para pacotes, o preço é mensal
+                const monthsDifference = Math.ceil(daysDifference / 30);
+                totalCost = price * monthsDifference;
+                totalCostElement.textContent = `Valor total: R$ ${totalCost.toFixed(2).replace('.', ',')} (${monthsDifference} mês${monthsDifference > 1 ? 'es' : ''})`;
+            } else {
+                // Para veículos, o preço é diário
+                totalCost = price * daysDifference;
+                totalCostElement.textContent = `Valor total: R$ ${totalCost.toFixed(2).replace('.', ',')} (${daysDifference} dia${daysDifference > 1 ? 's' : ''})`;
+            }
+            return totalCost;
+        }
+
+        // Evento de submissão do formulário
+        document.getElementById('locacao-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+            const carro = document.getElementById('carro').selectedOptions[0].text;
+            const dataInicio = document.getElementById('data-inicio').value;
+            const dataFim = document.getElementById('data-fim').value;
+            const totalCost = calculateTotal();
+
+            const formatDate = (dateStr) => new Date(dateStr).toLocaleDateString('pt-BR');
+            const mensagem = `
+                Dados da Locação:
+                Nome: ${nome}
+                Telefone: ${telefone}
+                Email: ${email}
+                Veículo/Pacote: ${carro}
+                Data de Início: ${formatDate(dataInicio)}
+                Data de Fim: ${formatDate(dataFim)}
+                Valor Total: R$ ${totalCost.toFixed(2).replace('.', ',')}
+            `;
+            alert(mensagem.trim());
+        });
+
+        // Atualizar total ao mudar seleção ou datas
+        document.getElementById('carro').addEventListener('change', calculateTotal);
+        document.getElementById('data-inicio').addEventListener('change', calculateTotal);
+        document.getElementById('data-fim').addEventListener('change', calculateTotal);
+    </script>
+</body>
+</html>
